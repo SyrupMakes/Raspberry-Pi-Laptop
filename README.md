@@ -10,14 +10,17 @@ This list **DOES NOT INCLUDE** consumeables like 3D printing filament, screws, s
 
 * [Raspberry Pi 500](https://www.raspberrypi.com/products/raspberry-pi-500/) $90
 * [11.6 inch LCD Display and Driver](https://www.aliexpress.com/item/1005007374742213.html?spm=a2g0o.order_list.order_list_main.5.871c1802cOe4MF) $60
-* 2x [10,000mAh 1260110 LiPo Batteries](https://www.aliexpress.com/item/1005005251229107.html?spm=a2g0o.order_list.order_list_main.20.871c1802cOe4MF) $34
+* Two [10,000mAh 1260110 LiPo Batteries](https://www.aliexpress.com/item/1005005251229107.html?spm=a2g0o.order_list.order_list_main.20.871c1802cOe4MF) $34
 * [Framework 13 inch Laptop Hinge](https://frame.work/ca/en/products/display-hinge-kit?v=FRANFB0002) #32
 * [Raspberry Pi 5 UPS Board](https://www.amazon.ca/dp/B087FXLZZH) $87
 * [Raspberry Pi 5 Active cooler](https://www.amazon.ca/dp/B0CQYGHL9D) $16
-* DIY HDMI Cable (three parts) $15 https://www.adafruit.com/product/3560 https://www.adafruit.com/product/3557 https://www.adafruit.com/product/3552
+* DIY HDMI Cable (three parts)
+  *  [10cm Ribbon Cable](https://www.adafruit.com/product/3560) $1.50
+  *  [Micro HDMI Plug](https://www.adafruit.com/product/3557) $6.50
+  *  [Mini HDMI Plug](https://www.adafruit.com/product/3552) $6.50
 * Optional Parts
-⋅⋅⋅⋅* [Cheap USB M.2 Enclosure](https://www.amazon.ca/dp/B0BXLFXLDS) $26
-⋅⋅⋅⋅* [Cheap M.2 SSD](https://www.amazon.ca/dp/B07ZGK3K4V) $30
+  * [Cheap USB M.2 Enclosure](https://www.amazon.ca/dp/B0BXLFXLDS) $26
+  * [Cheap M.2 SSD](https://www.amazon.ca/dp/B07ZGK3K4V) $30
 
 ### Sub total: $334 CAD (+$56 for SSD)
 
@@ -47,3 +50,17 @@ Instead of designing a battery management system for the Pi from scratch, I deci
 ## Active Cooler
 
 The passive cooler inside of the Raspberry Pi 500 is too big to fit inside the case so an active cooler has to be used instead. The Raspberry Pi 500 does not have a fan header, but you can use GPIO and a python script to control the fan.
+
+## Laptop Hinge
+
+This is one of the things that I meant by not re-inventing the wheel. You could get away with using a 3D printed hinge, but honestly I tried that and the experience was not great. Proper laptop hinges are available and the experience is so much better that it is worth the extra $32. No one likes a floppy laptop.
+
+## Storage
+
+If you don't want to spend extra money on an SSD, you can use the SD card that comes with the Raspberry Pi 500. If you do, there are two options:
+
+### M.2 to USB Enclosure
+There are some cheap M.2 to USB enclosures on amazon that can be used and strapped to the back of the laptop. There is no need to buy a high speed SSD or Enclosure if you do this method because you will be bottlenecked by the USB 3.0 speeds before anything else.
+
+### Add M.2 Slot to the Raspberry Pi 500
+If you feel adventurous and have a Hot Air Gun and a microscope, you can add a M.2 Slot to the Raspberry pi 500 for an extra $20. The board itself has all the PCB footprints to support an M.2 drive. It is just missing a couple dozen surface mount components. Adding the slot is **NOT** easy to do though and not recommended if you don't have a lot of patience and soldering experience. There are a dozen 0201 components you need to solder on the board as well as a dozen other tiny components. I managed to do this without any surface mount experience, but it was far from easy.

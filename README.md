@@ -4,15 +4,21 @@ Have you ever wanted to make a laptop out of a Raspberry Pi? Yeah? Well, that’
 
 It's actually not *that* hard to do make. I tried as much as I could with this project to **NOT** re-invent the wheel and use commercially available solutions when possible.
 
+<img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/Side%20View.jpg" width="500" height="500"> <img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/Front%20View.jpg" width="500" height="500">
+
 ## Why use a Raspberry Pi 500?
 
 I chose the Raspberry Pi 500 for this project because it is the Pi closest to already being a laptop. It has all of it's IO on one side of the board (which is important), comes with a low-profile keyboard, and even supports an M.2 SSD if you're brave enough. The only major things lacking from the Raspberry Pi 500 to turn it into a laptop is a battery and a display.
 
-There **ARE** more powerful single board computers that could have been used, but they would have required a lot to become a laptop and for what I use a laptop for, the Raspberry Pi 5 is plenty powerful.
+There are more powerful single board computers that could have been used, but they would have required a lot effort to turn into a laptop and for what I use a laptop for, the Raspberry Pi 5 is plenty powerful.
 
 ## 11.6-inch LCD Display
 
 The display used in this project is a kit from AliExpress that includes a 1080p 11.6-inch display that is normally powered via USB. This display is exactly the right size for the Raspberry Pi 500 as it is the same size as the keyboard. Since the HDMI will need to be routed inside of the case and there isn't much space, a DIY HDMI cable is required. The USB cable to power the display will also need to be run internally, but can be replaced by two 22-gauge wires connected to carry power.
+
+This display also has an exposed backlight so I designed the the case to fit custom lithophanes!
+
+<img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/Lithophane%20view.jpg" width="500" height="500">
 
 ## Batteries & UPS
 
@@ -22,11 +28,11 @@ Instead of designing a battery management system for the Pi from scratch, I deci
 
 ## Active Cooler
 
-The passive cooler inside of the Raspberry Pi 500 is too big to fit inside the case so an active cooler has to be used instead. The Raspberry Pi 500 does not have a fan header, but you can use GPIO and a python script to control the fan.
+The passive cooler inside of the Raspberry Pi 500 is too big to fit inside the case so an active cooler has to be used instead. I used a cheap $16 Raspberry Pi 5 cooler off of amazon. The Raspberry Pi 500 does not have a fan header, but you can use GPIO and a python script to control the fan.
 
 ## Laptop Hinge
 
-This is one of the things that I meant by not re-inventing the wheel. You could get away with using a 3D printed hinge but honestly, I tried that and the experience was not great. Proper laptop hinges are available and the experience is so much better that it is worth the extra $32. No one likes a floppy laptop.
+This is one of the things that I meant by not re-inventing the wheel. You could get away with using a 3D printed hinge but it feels so much worse than a proper laptop hinge. Proper laptop hinges are available and the experience is so much better that it is worth the extra money. No one likes a floppy laptop.
 
 ## Storage
 
@@ -36,11 +42,11 @@ If you don't want to spend extra money on an SSD, you can use the SD card that c
 There are some cheap M.2 to USB enclosures on amazon that can be used and strapped to the back of the laptop. There is no need to buy a high-speed SSD or Enclosure if you do this method because you will be bottlenecked by the USB 3.0 speeds before anything else.
 
 ### Add M.2 Slot to the Raspberry Pi 500
-If you feel adventurous and have a Hot Air Gun and a microscope, you can add a M.2 Slot to the Raspberry pi 500 for an extra $20. The board itself has all the PCB footprints to support an M.2 drive. It is just missing a couple dozen surface mount components. Adding the slot is **NOT** easy to do though and not recommended if you don't have a lot of patience and soldering experience. There are a dozen 0201 components you need to solder on the board as well as a dozen other tiny components. I managed to do this without any surface mount experience, but it was far from easy.
+If you feel adventurous and have a Hot Air Gun and a microscope, you can add a M.2 Slot to the Raspberry pi 500 for an extra $20. The board itself has all the PCB footprints to support an M.2 drive. It is just missing a couple dozen surface mount components. Here is a parts list for how to do it by [ChoptecOfficial](https://x.com/ChoptecOfficial/status/1868350222671478982). Adding the slot is **NOT** easy to do though and not recommended if you don't have a lot of patience and soldering experience. There are a dozen or so 0201 components that need to be soldered on the board as well as a dozen other tiny components. I managed to do this without any surface mount experience, but it was far from easy.
 
 ## Parts List (All prices in CAD)
 
-This list **DOES NOT INCLUDE** consumables like 3D printing filament, screws, solder or wire.
+This list **DOES NOT INCLUDE** consumables like 3D printing filament, screws, solder or wire. Also does not include tax or shipping.
 
 * [Raspberry Pi 500](https://www.raspberrypi.com/products/raspberry-pi-500/) $90
 * [11.6 inch LCD Display and Driver](https://www.aliexpress.com/item/1005007374742213.html?spm=a2g0o.order_list.order_list_main.5.871c1802cOe4MF) $60
@@ -60,9 +66,9 @@ This list **DOES NOT INCLUDE** consumables like 3D printing filament, screws, so
 
 ## Required Tools
 
-* Basic Soldering gear (Soldering Iron, Solder, Wire strippers)
+* Basic Soldering gear (Soldering Iron, Solder, Wire strippers, Wire)
 * 3D printer (OR 3D printing service like JLCPCB)
-* Wire Cutters
+* Wire Cutters for taking connectors off the UPS
 * Kapton tape
 
 # Instructions
@@ -73,21 +79,30 @@ The Raspberry Pi 500 has **no screws** holding the case together. It is held tog
 
 Once you have the case open and the keyboard disconnected, there are 4 screws that need to be undone. After that the board can be removed from the bottom half of the case and the passive cooler can be removed.
 
+Here is a [teardown video by Jeff Geerling](https://youtu.be/omYWRb1dLA4?si=yuaZZLdFEn6y9KXy&t=272) showing how to take it apart.
+
 ## Preparing the Raspberry Pi 500 board
 
 If you don't care about having the GPIO connector available on your laptop, I would recommend cutting it off as it will make connecting all of the required GPIO pins easier. I also removed the Ethernet port on my Raspberry Pi since it was really tall and interfered with a previous case design, but that may not be necessary anymore.
 
 You will also need to solder on some 22-gauge wires onto a USB port to power the fan and the display driver. I would recommend using the USB 2 Port as it has a simpler Pin out. Solder 2 wires onto the 5V line and 2 onto one of the grounds. I would recommend first twisting and soldering the two wires together and then attaching them to the pad. Leave yourself a lot of extra wire so that we can cable manage later.
 
+<img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/USB%202.0%20Connections.jpg" width="500" height="500">
+
+
 ## Preparing the UPS Board
 
 To make the UPS board fit inside the case, we need to cut off almost all of the IO. You need to cut off the GPIO connector on both sides of the board, the 18650-battery connector, as well as the 5V in and 5V out connectors. The only connector that you **CANNOT** remove is the USB C connector. That is how we will charge the Raspberry Pi.
 
-After all the connectors have been removed, you will have to bridge Pin 2 and 4 (the 5V Pins) as well as two GND Pins (I bridged 30, 32, and 34). These will function as the 5V and GND lines for the Raspberry Pi and will need to be connected to the same pins on the Raspberry Pi 500. I would recommend waiting until it is installed in the case before doing this though so you can properly size the wires.
+<img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/UPS%20Board%20TOP.jpg" width="500" height="500"> <img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/UPS%20Board%20Bottom.jpg" width="500" height="500">
 
-There is also two jumpers you have to solder together for Auto start and auto charge.
+After all the connectors have been removed, you will have to bridge Pin 2 and 4 (the 5V Pins) as well as two GND Pins (I bridged 30, 32, and 34). These will function as the 5V and GND lines for the Raspberry Pi and will need to be connected to the same pins on the Raspberry Pi 500. It may be possible to use one of the 5V output connectors instead of GPIO, but im not sure. The UPS is designed to provide power through those GPIO pins and power accessories with the 5V output connectors so the 5V output connectors may have a current limit on them. I would recommend waiting until it is installed in the case before doing this though so you can properly size the wires. The UPS uses the same pin out as the Raspberry Pi 5.
 
-It may be possible to use one of the 5V output connectors instead of GPIO, but im not sure. The UPS is designed to provide power through those GPIO pins and power accessories with the 5V output connectors so the 5V output connectors may have a current limit on them.
+<img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/GPIO-Pinout-Diagram-2.png" height="400"> <img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/UPS%20Pin%20out.jpg" height="400">
+
+There is also two jumpers you have to solder together for Auto start and auto charge. Solder them together as shown in this image.
+
+<img src="https://github.com/SyrupMakes/Raspberry-Pi-Laptop/blob/main/Images/Solder%20Jumpers.jpg" width="500" height="500">
 
 ## Preparing the Batteries
 

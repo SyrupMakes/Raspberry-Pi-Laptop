@@ -1,5 +1,7 @@
 # Raspberry Pi 500 Laptop
 
+Note: This Page is still a WIP.
+
 Have you ever wanted to make a laptop out of a Raspberry Pi? Yeah? Well, that’s stupid.... Anyways I did and here is how.
 
 It's actually not *that* hard to do make. I tried as much as I could with this project to **NOT** re-invent the wheel and use commercially available solutions when possible.
